@@ -127,7 +127,12 @@ in
           '';
         };
         auto_login_session = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.path
+            ]
+          );
           default = null;
           description = ''
             Session name to launch automatically
@@ -199,7 +204,12 @@ in
           description = "Title to show at the top of the main box. If set to null, none will be shown.";
         };
         brightness_up_cmd = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.package
+            ]
+          );
           default = null;
           description = "Brightness decrease command ";
         };
@@ -209,7 +219,12 @@ in
           description = "Brightness increase key (F1-F12), null to disable ";
         };
         brightness_down_cmd = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.package
+            ]
+          );
           default = null;
           description = "Brightness decrease command ";
         };
@@ -267,7 +282,12 @@ in
           description = "Color mixing animation third color id";
         };
         custom_sessions = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.path
+            ]
+          );
           default = null;
           description = ''
             Custom sessions directory
@@ -314,7 +334,12 @@ in
           description = "DOOM animation custom bottom color (high intensity flames)";
         };
         dur_file_path = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.path
+            ]
+          );
           default = null;
           description = "Dur file path";
         };
@@ -401,7 +426,12 @@ in
           '';
         };
         hibernate_cmd = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.package
+            ]
+          );
           default = null;
           description = "Command executed when pressing hibernate key (can be null)";
         };
@@ -431,7 +461,12 @@ in
           description = "Remove version number from the top left corner";
         };
         inactivity_cmd = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.package
+            ]
+          );
           default = null;
           description = "Command executed when no input is detected for a certain time";
         };
@@ -639,7 +674,12 @@ in
           '';
         };
         x_cmd = mkOption {
-          type = lib.types.nullOr lib.types.str;
+          type = lib.types.nullOr (
+            lib.types.oneOf [
+              lib.types.str
+              lib.types.package
+            ]
+          );
           default = null;
           description = ''
             Xorg server command
